@@ -24,4 +24,16 @@ final class MainView {
             section.children.append(content)
         }
     }
+    
+    func render(with drop: Droplet) -> String? {
+        self.addSectionText()
+        let page = UIWebPage(head: head, header: header, section: section, footer: footer)
+        page.add(drop)
+        do {
+            return try page.render()
+        } catch let error {
+            print("Web Page Error: ", error)
+        }
+        return nil
+    }
 }
