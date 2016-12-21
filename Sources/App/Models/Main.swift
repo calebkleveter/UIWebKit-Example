@@ -8,6 +8,7 @@
 
 import Foundation
 import UIWebKit
+import Vapor
 
 final class MainView {
     let head = UIElement(element: Element.head)
