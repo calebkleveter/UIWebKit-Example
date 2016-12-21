@@ -8,3 +8,7 @@
 
 import Foundation
 import UIWebKit
+
+final class MainView {
+    
+}
