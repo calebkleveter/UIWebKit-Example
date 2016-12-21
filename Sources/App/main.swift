@@ -3,9 +3,12 @@ import Vapor
 let drop = Droplet()
 
 drop.get { req in
-    return try drop.view.make("welcome", [
-    	"message": drop.localization[req.lang, "welcome", "title"]
-    ])
+    let mainView = MainView()
+    if let main = mainView.render(with: drop) {
+        return try drop.view.make(main, [])
+    } else {
+        throw Abort.custom(status: .internalServerError, message: "Unable to Create Page.")
+    }
 }
 
 drop.resource("posts", PostController())
