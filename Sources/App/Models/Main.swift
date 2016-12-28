@@ -25,7 +25,18 @@ final class MainView {
         }
     }
     
+    func addHead() {
+        let title = UIElement(element: .title)
+        title.add("UIWebKit Example")
+        let link = UIElement(element: .link)
+        link.attributes["rel"] = "stylesheet"
+        link.attributes["href"] = "https://fonts.googleapis.com/css?family=Roboto"
+        head.add(title)
+        head.add(link)
+    }
+    
     func render(with drop: Droplet) -> String? {
+        self.addHead()
         self.addSectionText()
         let page = UIWebPage(head: head, header: header, section: section, footer: footer)
         page.add(drop)
