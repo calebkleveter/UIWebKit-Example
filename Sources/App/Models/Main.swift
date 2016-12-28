@@ -18,10 +18,10 @@ final class MainView {
     
     func addSectionText() {
         let content = UIElement(element: Element.p)
-        content.text = "Another line"
-        content.attributes["style"] = "color: green; font-size: 2rem;"
+        content.add("Text")
+        content.attributes["style"] = "font-family: Roboto, sans-serif;"
         for _ in 0...10 {
-            section.children.append(content)
+            section.add(content)
         }
     }
     
