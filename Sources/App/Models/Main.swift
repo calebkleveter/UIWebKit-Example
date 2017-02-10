@@ -40,6 +40,7 @@ final class MainView {
         self.addSectionText()
         let page = UIWebPage(head: head, header: header, section: section, footer: footer)
         page.add(drop)
+        page.import(.jQuery)
         do {
             return try page.render()
         } catch let error {
