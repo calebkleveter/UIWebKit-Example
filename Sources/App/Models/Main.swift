@@ -6,15 +6,15 @@
 //
 //
 
-import Foundation
 import UIWebKit
 import Vapor
 
-final class MainView {
-    let head = UIElement(element: Element.head)
-    let header = UIElement(element: Element.header)
-    let section = UIElement(element: Element.section)
-    let footer = UIElement(element: Element.footer)
+final class MainView: UIWebPage {
+    
+    override func configure() {
+        addSectionText()
+        addHead()
+    }
     
     func addSectionText() {
         let content = UIElement(element: Element.p)
@@ -33,19 +33,5 @@ final class MainView {
         link.attributes["href"] = "https://fonts.googleapis.com/css?family=Roboto"
         head.add(title)
         head.add(link)
-    }
-    
-    func render(with drop: Droplet) -> String? {
-        self.addHead()
-        self.addSectionText()
-        let page = UIWebPage(head: head, header: header, section: section, footer: footer)
-        page.add(drop)
-        page.import(.jQuery)
-        do {
-            return try page.render()
-        } catch let error {
-            print("Web Page Error: ", error)
-        }
-        return nil
     }
 }
