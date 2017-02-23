@@ -12,6 +12,7 @@ import Vapor
 final class MainView: UIWebPage {
     
     override func configure() {
+        self.import(Dependency.bootstrap)
         addSectionText()
         addHead()
     }
