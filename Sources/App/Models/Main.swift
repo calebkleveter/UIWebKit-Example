@@ -24,6 +24,7 @@ final class MainView: UIWebPage {
         for _ in 0...10 {
             section.add(content)
         }
+        section.add("<script>alert(\"Danger!\")</script>")
     }
     
     func addHead() {
