@@ -15,6 +15,8 @@ final class MainView: UIWebPage {
         self.import(Dependency.bootstrap)
         addSectionText()
         addHead()
+        let table = UITable(with: [["Joe", "Boe", "41"], ["Bob", "Job", "14"]])
+        self.section.add(table)
     }
     
     func addSectionText() {

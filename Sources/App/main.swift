@@ -3,7 +3,7 @@ import Vapor
 let drop = Droplet()
 
 drop.get { req in
-    return try MainView().render()
+    return MainView()
 }
 
 drop.resource("posts", PostController())
